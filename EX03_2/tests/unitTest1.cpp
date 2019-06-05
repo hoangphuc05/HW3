@@ -26,8 +26,8 @@ TEST(TestCase, Exception) {
 }
 
 TEST(TestCase, input3) {
-    //istringstream ss("-3\n5\n10\n-2\n3");
-    ifstream ss("outRange.txt");
+    istringstream ss("-3\n5\n10\n-2\n3");
+    //ifstream ss("outRange.txt");
     if (ss.fail())
         throw int(-1);
      
@@ -40,7 +40,7 @@ TEST(TestCase, input3) {
     //return to normal cin
     cin.rdbuf(orig_cin);
 
-    ss.close();
+    //ss.close();
 }
 
 TEST(TestCase, ExceptionOf0) {
