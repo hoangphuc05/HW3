@@ -19,17 +19,25 @@ int read_int(const string &prompt, int low, int high)
             if (low >= high) throw invalid_argument("Empty range!");
             cout << prompt;
             cin >> num;
-            if (num  > high or num < low) throw string("over sized!");
-            else return num;
+            cout << "input is: " << num << endl;
+            if (num  >= high or num <= low) throw range_error("Number input is not in the range!");
+            return num;
         } catch (ios_base::failure &ex) {
-            cout << "Bad String!\n";
+            cout << "Invalid input!\n";
             //reset the flag
             cin.clear();
             //skip the current input
             cin.ignore(numeric_limits<int>::max(), '\n');
-        } 
-        catch (string& e) {
-            cout << "Out of range number!\n";
+        }
+        catch (range_error& e) {
+            cout << "Your number is out of range!\n";
+            //reset the flag
+            //cin.clear();
+            //skip the current input
+            //cin.ignore(numeric_limits<int>::max(), '\n');
+        }
+        catch (exception &ex) {
+            cout << "Invalid input! Exception\n";
             //reset the flag
             cin.clear();
             //skip the current input
