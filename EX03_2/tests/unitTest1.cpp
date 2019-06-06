@@ -28,8 +28,7 @@ TEST(TestCase, Exception) {
 TEST(TestCase, input3) {
     istringstream ss("-3\n5\n10\n-2\n3");
     //ifstream ss("outRange.txt");
-    if (ss.fail())
-        throw int(-1);
+   
      
 
     // Replace the cin read buffer with the read buffer from the file stream

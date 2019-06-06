@@ -14,9 +14,10 @@ int read_int(const string &prompt, int low, int high)
 
     cin.exceptions(ios_base::failbit | ios_base::badbit);
     int num = 0;
+    if (low >= high) throw invalid_argument("Empty range!");
     while (true){
         try {
-            if (low >= high) throw invalid_argument("Empty range!");
+            //if (low >= high) throw invalid_argument("Empty range!");
             cout << prompt;
             cin >> num;
             //cout << "input is: " << num << endl;
@@ -37,7 +38,7 @@ int read_int(const string &prompt, int low, int high)
             //cin.ignore(numeric_limits<int>::max(), '\n');
         }
         catch (exception &ex) {
-            cout << "Invalid input! Exception\n";
+            cout << "Invalid input! Exception" << ex.what() << endl;
             //reset the flag
             cin.clear();
             //skip the current input
